@@ -29,7 +29,7 @@ Navigate to the cloned repository and select the solution file (.sln).
 ### 3. Update the appsettings.json File
 
 Locate the appsettings.json file (found under the Properties folder or in the root directory).
-Open the file and update the "ApiKey" under "TicketmasterConfig" with your API key:
+Open the file and update the "ApiKey" under "TicketmasterConfig" with your API key
 
 ### 4. Run the Application
 
