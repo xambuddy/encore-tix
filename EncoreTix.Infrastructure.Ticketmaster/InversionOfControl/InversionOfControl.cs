@@ -17,5 +17,10 @@ public static class InversionOfControl
             {
                 client.BaseAddress = new Uri(new Uri(ticketmasterConfig.BaseUrl), "discovery/v2/attractions");
             });
+        services
+            .AddHttpClient<IEventsService, EventsService>(client =>
+            {
+                client.BaseAddress = new Uri(new Uri(ticketmasterConfig.BaseUrl), "discovery/v2/events");
+            });
     }
 }

@@ -1,20 +1,21 @@
 ﻿using EncoreTix.Infrastructure.Ticketmaster.Configurations;
 using EncoreTix.Infrastructure.Ticketmaster.Discovery.Attractions.Models;
-using EncoreTix.Infrastructure.Ticketmaster.Responses.Attractions;
+using EncoreTix.Infrastructure.Ticketmaster.Responses.Events;
 using Newtonsoft.Json;
 using System.Web;
 
 namespace EncoreTix.Infrastructure.Ticketmaster.Discovery.Attractions.Services;
 
-public class AttractionsService(HttpClient httpClient, TicketmasterConfig ticketmasterConfig) : IAttractionsService
+public class EventsService(HttpClient httpClient, TicketmasterConfig ticketmasterConfig) : IEventsService
 {
-    public async Task<IEnumerable<AttractionDto>> SearchAttractions(string? keyword = null, int size = 20, int page = 0)
+    public async Task<IEnumerable<EventDto>> SearchEvents(string attractionId, string? keyword = null, int size = 20, int page = 0)
     {
         var uriBuilder = new UriBuilder(httpClient.BaseAddress);
 
         var query = HttpUtility.ParseQueryString(uriBuilder.Query);
 
         query["apikey"] = ticketmasterConfig.Apikey;
+        query["attractionId"] = attractionId;
         query["size"] = size.ToString();
         query["page"] = page.ToString();
 
@@ -36,8 +37,8 @@ public class AttractionsService(HttpClient httpClient, TicketmasterConfig ticket
         response.EnsureSuccessStatusCode();
 
         var content = await response.Content.ReadAsStringAsync();
-        var attractionsReponse = JsonConvert.DeserializeObject<AttractionsResponse>(content);
+        var eventsResponse = JsonConvert.DeserializeObject<EventsResponse>(content);
 
-        return attractionsReponse?.Embedded?.Attractions ?? new List<AttractionDto>();
+        return eventsResponse?.Embedded?.Events ?? new List<EventDto>();
     }
 }
