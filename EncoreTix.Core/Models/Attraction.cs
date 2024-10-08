@@ -1,0 +1,16 @@
+﻿namespace EncoreTix.Core.Models;
+
+public class Attraction
+{
+    public string Name { get; set; }
+
+    public string Type { get; set; }
+
+    public string Id { get; set; }
+
+    public bool Test { get; set; }
+
+    public string Locale { get; set; }
+
+    public List<object> Images { get; set; }
+}

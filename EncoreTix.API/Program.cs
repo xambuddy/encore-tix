@@ -1,6 +1,7 @@
 using EncoreTix.API.Behaviors;
 using EncoreTix.API.InversionOfControl;
 using MediatR;
+using EncoreTix.Infrastructure.Ticketmaster.InversionOfControl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.RegisterMediatrServices();
+builder.Services.RegisterAutoMapper();
+builder.Services.RegisterTicketmasterServices(builder.Configuration);
 
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
