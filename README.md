@@ -18,6 +18,7 @@ Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/xambuddy/encore-tix.git
+```
 
 ### 2. Open the Project in Visual Studio 2022
 
