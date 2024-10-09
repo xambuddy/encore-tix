@@ -28,7 +28,7 @@ Navigate to the cloned repository and select the solution file (.sln).
 
 ### 3. Update the appsettings.json File
 
-Locate the appsettings.json file (found under EncoreTex.API).
+Locate the appsettings.json file (found under EncoreTex).
 Open the file and update the "ApiKey" under "TicketmasterConfig" with your API key
 
 ### 4. Run the Application
