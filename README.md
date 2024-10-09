@@ -1,4 +1,4 @@
-# EncoreTix Backend - Setup and Run Guide (Visual Studio 2022)
+# EncoreTix - Setup and Run Guide (Visual Studio 2022)
 
 This guide provides step-by-step instructions to set up and run the backend application using Visual Studio 2022.
 
@@ -33,12 +33,8 @@ Open the file and update the "ApiKey" under "TicketmasterConfig" with your API k
 
 ### 4. Run the Application
 
-Set the backend project as the Startup Project:
+Set the ExcoreTix project as the Startup Project:
 - Right-click on the backend project in the Solution Explorer.
 - Select Set as Startup Project.
 
 Press F5 or click on the Run button to start the application.
-
-### 5. Test the API Endpoints
-
-Navigate to https://localhost:7177/swagger/index.html
