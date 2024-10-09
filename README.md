@@ -33,7 +33,7 @@ Open the file and update the "ApiKey" under "TicketmasterConfig" with your API k
 
 ### 4. Run the Application
 
-Set the ExcoreTix project as the Startup Project:
+Set the EncoreTix project as the Startup Project:
 - Right-click on the backend project in the Solution Explorer.
 - Select Set as Startup Project.
 
