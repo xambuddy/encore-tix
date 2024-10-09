@@ -19,6 +19,14 @@ public class Event
     public Dates Dates { get; set; }
 
     public IEnumerable<Venue> Venues { get; set; }
+
+    public Venue? SingleVenue
+    {
+        get
+        {
+            return Venues?.FirstOrDefault();
+        }
+    }
 }
 
 public class Dates
@@ -33,6 +41,20 @@ public class Dates
 public class StartDate
 {
     public string LocalDate { get; set; }
+
+    public string FormattedLocalDate
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(LocalDate))
+                return LocalDate;
+
+            DateTime date = DateTime.ParseExact(LocalDate, "yyyy-MM-dd", null);
+
+            string formattedDate = date.ToString("dddd, MMMM d, yyyy").ToUpper();
+            return formattedDate;
+        }
+    }
 
     public bool DateTBD { get; set; }
 

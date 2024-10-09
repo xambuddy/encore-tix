@@ -1,7 +1,7 @@
 ﻿using EncoreTix.Application.Features.Attractions.Queries;
 using EncoreTix.Application.Profiles;
 
-namespace EncoreTix.API.InversionOfControl;
+namespace EncoreTix.InversionOfControl;
 
 public static class InversionOfControl
 {

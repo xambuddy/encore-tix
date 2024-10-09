@@ -1,4 +1,9 @@
+using EncoreTix.Application.InversionOfControl;
+using EncoreTix.Behaviors;
 using EncoreTix.Components;
+using EncoreTix.Infrastructure.Ticketmaster.InversionOfControl;
+using EncoreTix.InversionOfControl;
+using MediatR;
 using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +14,13 @@ builder.Services.AddMudServices();
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.RegisterMediatrServices();
+builder.Services.RegisterAutoMapper();
+builder.Services.RegisterTicketmasterServices(builder.Configuration);
+builder.Services.RegisterFeatureServices();
+
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
 var app = builder.Build();
 

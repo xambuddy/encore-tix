@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace EncoreTix.API.Behaviors
+namespace EncoreTix.Behaviors
 {
     public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>

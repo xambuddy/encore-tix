@@ -8,6 +8,33 @@ namespace EncoreTix.Infrastructure.Ticketmaster.Discovery.Attractions.Clients;
 
 public class AttractionsClient(HttpClient httpClient, TicketmasterConfig ticketmasterConfig) : IAttractionsClient
 {
+    public async Task<AttractionDto> GetAttractionDetails(string id)
+    {
+        var uriBuilder = new UriBuilder(httpClient.BaseAddress);
+        uriBuilder.Path = $"{uriBuilder.Path.TrimEnd('/')}/{id}";
+
+        var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+
+        query["apikey"] = ticketmasterConfig.Apikey;
+
+        uriBuilder.Query = query.ToString();
+
+        var request = new HttpRequestMessage
+        {
+            Method = HttpMethod.Get,
+            RequestUri = uriBuilder.Uri
+        };
+
+        using var response = await httpClient.SendAsync(request);
+
+        response.EnsureSuccessStatusCode();
+
+        var content = await response.Content.ReadAsStringAsync();
+        var attractionReponse = JsonConvert.DeserializeObject<AttractionDto>(content);
+
+        return attractionReponse;
+    }
+
     public async Task<IEnumerable<AttractionDto>> SearchAttractions(string? keyword = null, int size = 20, int page = 0)
     {
         var uriBuilder = new UriBuilder(httpClient.BaseAddress);

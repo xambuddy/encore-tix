@@ -8,6 +8,13 @@
 
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="MudBlazor" Version="7.*" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\EncoreTix.Application\EncoreTix.Application.csproj" />
+    <ProjectReference Include="..\EncoreTix.Infrastructure.Ticketmaster\EncoreTix.Infrastructure.Ticketmaster.csproj" />
   </ItemGroup>
 </Project>

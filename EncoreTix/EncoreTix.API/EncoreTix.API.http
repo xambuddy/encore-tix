@@ -1,6 +1,0 @@
-@EncoreTix.API_HostAddress = http://localhost:5299
-
-GET {{EncoreTix.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

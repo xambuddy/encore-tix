@@ -5,4 +5,6 @@ namespace EncoreTix.Infrastructure.Ticketmaster.Discovery.Attractions.Clients;
 public interface IAttractionsClient
 {
     Task<IEnumerable<AttractionDto>> SearchAttractions(string? keyword = null, int size = 20, int page = 0);
+
+    Task<AttractionDto> GetAttractionDetails(string id);
 }
