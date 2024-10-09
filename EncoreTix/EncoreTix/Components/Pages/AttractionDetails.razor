@@ -60,9 +60,9 @@ else
                         <MudCard>
                             <MudCardMedia Image="@(ev.Images?.FirstOrDefault()?.Url)" Height=200 />
                             <MudCardContent>
-                                <MudText Typo="Typo.body2">@ev.Dates.Start.FormattedLocalDate</MudText>
+                                <MudText Typo="Typo.body2">@ev.Dates?.Start?.FormattedLocalDate</MudText>
                                 <MudText Typo="Typo.h6">@ev.Name</MudText>
-                                <MudText Typo="Typo.body2">@ev.SingleVenue?.Name, @ev.SingleVenue?.City.Name, @ev.SingleVenue?.State.StateCode</MudText>
+                                <MudText Typo="Typo.body2">@ev.SingleVenue?.Name, @ev.SingleVenue?.City?.Name, @ev.SingleVenue?.State?.StateCode</MudText>
                             </MudCardContent>
                         </MudCard>
                     </MudItem>
