@@ -4,9 +4,9 @@ using EncoreTix.Infrastructure.Ticketmaster.Responses.Attractions;
 using Newtonsoft.Json;
 using System.Web;
 
-namespace EncoreTix.Infrastructure.Ticketmaster.Discovery.Attractions.Services;
+namespace EncoreTix.Infrastructure.Ticketmaster.Discovery.Attractions.Clients;
 
-public class AttractionsService(HttpClient httpClient, TicketmasterConfig ticketmasterConfig) : IAttractionsService
+public class AttractionsClient(HttpClient httpClient, TicketmasterConfig ticketmasterConfig) : IAttractionsClient
 {
     public async Task<IEnumerable<AttractionDto>> SearchAttractions(string? keyword = null, int size = 20, int page = 0)
     {
